@@ -12,9 +12,7 @@ five :: Int
 five = 5
 
 six :: Int
-six = 6
--- six = 5 + 1
--- six = five + 1
+six = five + 1
 
 zee :: Char
 zee = 'z'
@@ -62,6 +60,9 @@ isEven n = n `mod` 2 == 0
 isOdd :: Int -> Bool
 isOdd n = n `mod` 2 == 1
 
+
+returnFirst :: Char -> Int -> Char
+returnFirst x y = x
 
 
 

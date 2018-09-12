@@ -1,3 +1,5 @@
+A házi feladatot egy Homework1 nevű modulként kell beadni. Minden definiálandó függvényhez adjuk meg a hozzá tartotó típus szignatúrát is!
+
 Adjunk meg három különböző Int típusú kifejezést!
 
 Adjunk meg három különböző Char típusú kifejezést!
@@ -8,7 +10,7 @@ Katinak van 183 virágmagja, és 13 cserepe. Adjunk meg egy-egy olyan kifejezés
   a) El tudja-e Kati ültetni az összes virágmagját?
   b) Hány fölösleges virágmagja marad?
 
-Az órán definiált plusOne és double függvényeket használva adjunk meg három különböző kifejezést, amely 7-et állítja elő!
+Az órán definiált plusOne és double függvényeket használva adjunk meg három különböző kifejezést, amely a 7-et állítja elő!
 
 Adjuk meg azt a függvényt, amely eldönti, hogy:
   a) egy szám osztható-e hárommal,
