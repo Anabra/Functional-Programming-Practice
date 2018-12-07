@@ -11,7 +11,7 @@
     D) `f(1,2,"str") || True`
 
 3. Melyik állítás HAMIS az alábbiak közül?
-```
+```haskell
     f ([a]:[b])
     f (a:b:[])
     f ((a:[]):b:[])
@@ -34,7 +34,7 @@
     D) Futási idejű hiba
 
 6. Melyik sor hagyható el a függvényből úgy, hogy működése változatlan maradjon?
-```
+```haskell
   f [x,y] = x `min` y
   f [x] = x
   f (x:rest) = x `min` f rest
@@ -45,7 +45,7 @@
     D) Egyik sem
 
 7. Mi lehet a típusa az alábbi kifejezésnek?
-```
+```haskell
   map (filter (\x -> x))
 ```
     A) `[a] -> [a]`
@@ -54,17 +54,17 @@
     D) `[[Bool]] -> [[Bool]]`
 
 8. Mi lehet a típusa az alábbi függvénynek?
-```
+```haskell
   f (x,xs) = init x
   f _ = "default"
-```‌
+```
     A) `f :: [a] -> String`
     B) `f :: [String] -> String`
     C) `f :: (a,b) -> String`
     D) `f :: ([Char],a) -> [Char]`
 
 9. Mi a típusa az alábbi függvénynek?
-```
+```haskell
   f [] = []
   f [x] = [x]
   f [x:xs] = [xs]

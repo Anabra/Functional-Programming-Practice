@@ -129,19 +129,19 @@ Adjuk meg azt a függvényt, amely kap egy felhasználónevet, egy jelszót, és
 mkCookie :: Username -> Password -> Entry -> Cookie
 ```
 
-Adjuk meg azt a függvényt, amely bejelentkeztet egy felhasználót! A felhasználót úgy jelentkeztetjük be, hogy ha szerepel az adatbázisban, akkor visszaadunk egy cookie-t a felhasználónevével és a jogosultsági szintjével, ha pedig nem szerepel az adatbázisban, akkor kijelentkezteve tartjuk. __Segítség__: Használjuk a `lookup`, `maybe` és `mkCookie` függvényeket!
+Adjuk meg azt a függvényt, amely bejelentkeztet egy felhasználót! A felhasználót úgy jelentkeztetjük be, hogy ha szerepel az adatbázisban, és helyes a megadott jelszó, akkor visszaadunk egy cookie-t a felhasználónevével és a jogosultsági szintjével, ha pedig nem szerepel az adatbázisban, vagy a megadott jelszó nem egyezik az adatbázisban lévővel, akkor kijelentkezteve tartjuk. __Segítség__: Használjuk a `lookup`, `maybe` és `mkCookie` függvényeket!
 
 ```haskell
 login :: Username -> Database -> Cookie
 ```
 
-Adjuk meg azt a függvényt, amely a következőképpen működik Kap egy törlendő felhasználót, és egy adatbázisban szereplő kulcs-érték párt. Ha a kulcs éppen a törlendő felhasználó, akkor térjen vissza `Nothing`-gal. Egyébként pedig törölje a bejegyzésben lévő barátok közül közül a törlendő felhasználót, és az eredményt egy `Just`-ba csomagolva adja vissza.
+Adjuk meg azt a függvényt, amely a következőképpen működik. Kap egy törlendő felhasználót, és egy adatbázisban szereplő kulcs-érték párt. Ha a kulcs éppen a törlendő felhasználó, akkor térjen vissza `Nothing`-gal. Egyébként pedig törölje a bejegyzésben lévő barátok közül közül a törlendő felhasználót, és az eredményt egy `Just`-ba csomagolva adja vissza.
 
 ```haskell
 updateEntry :: Username -> (Username, Entry) -> Maybe (Username, Entry)
 ```
 
-Adjuk meg azt a függvényt, amely töröl egy felhasználót az adatbázisból! __Segítség__: Használjuk az előző az `updateEntry` és `mapMaybe` függvényeket!
+Adjuk meg azt a függvényt, amely töröl egy felhasználót az adatbázisból! A törlést csak akkor végezzük el, ha az azt kérő felhasználó (akinek az adatai a kapott cookie-ban vannak) `Admin` jogosultsággal rendelkezik. __Segítség__: Használjuk az előző az `updateEntry` és `mapMaybe` függvényeket!
 
 ```haskell
 deleteUser :: Cookie -> Username -> Database -> Database
