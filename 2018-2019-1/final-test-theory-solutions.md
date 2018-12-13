@@ -66,7 +66,7 @@
     D) Igaz, mert a második mintára illeszkedik.  
 
 
-4. Melyik kifejezés NEM lista típusú?
+4. Melyik kifejezés NEM lista típusú?  
     A) `([[1,2],[]])`  
     B) `[(1,2),(3,4)]`  
     C) `([1,2]:[])`  
@@ -82,7 +82,7 @@
     D) SOLUTION: Tuple   
 
 
-5. Mi az eredménye a következő kifejezésnek: `head [1,2,3] == take 1 [3,2,1]`
+5. Mi az eredménye a következő kifejezésnek: `head [1,2,3] == take 1 [3,2,1]`  
     A) `True`  
     B) `False`  
     C) Fordítási idejű hiba  
@@ -208,7 +208,7 @@
     Ez azt jelenti, hogy az argumentum `[[a]]` típusú lesz.  
     Ebből következik, hogy a megoldás a D.  
 
-10. Mi az eredménye a következő kifejezésnek: `zip [1..] "almafa"`
+10. Mi az eredménye a következő kifejezésnek: `zip [1..] "almafa"`  
     A) Nem áll le, nem ír ki semmit  
     B) Nem áll le, végtelen eredményt ad  
     C) Véges eredménnyel leáll  
@@ -218,7 +218,7 @@
     SOLUTION C, mert `zip` mindig a rövidebbik lista végéig "zipzároz".
 
 
-11. Mi igaz a `foldl (++) x ls` és `foldr (++) x ls` kifejezésekre?
+11. Mi igaz a `foldl (++) x ls` és `foldr (++) x ls` kifejezésekre?  
     A) Eredményük és futási költségük mindenképp azonos  
     B) Eredményük és futási költségük azonos, ha ls véges és kiértékelhető  
     C) Csak az egyik lehet típushelyes  
@@ -245,7 +245,7 @@
     A második kifejezésben minden listán pontosan egyszer megyünk végig.
     
 
-12. Melyik kifejezés hoz létre helyes `T` típusú értéket, ha `data T = A Int Bool | B String | C`
+12. Melyik kifejezés hoz létre helyes `T` típusú értéket, ha `data T = A Int Bool | B String | C`  
     A) `A "almafa"`  
     B) `A True 3`  
     C) `B 3`  
