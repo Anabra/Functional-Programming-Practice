@@ -180,3 +180,78 @@ Az előző függvények segítségével adjuk meg azt a függvényt, amely megha
 getSocialNetwork :: Username -> Database -> [Username]
 ```
 
+# Tesztek
+
+## Első rész
+
+```haskell
+isJust (Just 5)  == True
+isJust (Just []) == True
+isJust Nothing   == False
+
+fromJust (Just 5)  == 5
+fromJust (Just []) == []
+
+catMaybes []                         == []
+catMaybes [Nothing]                  == []
+catMaybes [Nothing, Nothing]         == []
+catMaybes [Nothing, Just 5, Nothing] == [5]
+catMaybes [Just 1, Just 5, Nothing]  == [1,5]
+catMaybes [Nothing, Just 5, Just 1]  == [5,1]
+catMaybes [Just 0, Just 5, Just 1]   == [0,5,1]
+
+mapMaybe Just [1..10] == [1..10]
+mapMaybe (const Nothing) [1..10] == []
+mapMaybe (\n -> if odd n then Just n else Nothing) [1..10] == [1,3..10]
+
+safeHead []    == Nothing
+safeHead [1]   == Just 1
+safeHead [1..] == Just 1
+
+password (snd richard)  == "password1"
+privilege (snd richard) == Admin
+friends (snd carol)     ==  ["David", "Charlie"]
+
+mkCookie "Richard" "password1" (snd richard) == LoggedIn "Richard" Admin
+mkCookie "Charlie" "password2" (snd charlie) == LoggedIn "Charlie" Simple
+mkCookie "Charlie" "password2" (snd richard) == LoggedOut
+mkCookie "Richard" "wrong_pw" (snd richard) == LoggedOut
+
+login "Kate"    "forgot"    testDB == LoggedOut
+login "Kate"    "password5" testDB == LoggedIn "Kate" Simple
+login "Richard" "password1" testDB == LoggedIn "Richard" Admin
+
+updateEntry "Kate"  kate    == Nothing
+updateEntry "Kate"  richard == Just ("Richard", Entry "password1" Admin [])
+updateEntry "David" carol   == Just ("Carol", Entry "password3" Simple ["Charlie"])
+
+deleteUser LoggedOut "Kate" testDB                      == testDB
+deleteUser (LoggedIn "Carol" Simple) "Kate" testDB      == testDB
+deleteUser (LoggedIn "Richard" Admin) "Jonathan" testDB == testDB
+deleteUser (LoggedIn "Richard" Admin) "Carol" testDB    == testDBWithoutCarol
+```
+
+## Második rész
+
+```haskell
+getFriends "Richard" testDB  == ["Kate"]
+getFriends "Carol" testDB    == ["David", "Charlie"]
+getFriends "Jonathan" testDB == []
+
+getFriendsRefl "Richard" testDB  == ["Richard","Kate"]
+getFriendsRefl "Carol" testDB    == ["Carol", "David", "Charlie"]
+getFriendsRefl "Jonathan" testDB == []
+
+fixPoint (drop 1) [1..10] == []
+fixPoint sqrt 100         == 1
+
+sortUnique []                == []
+sortUnique [1]               == [1]
+sortUnique [1,1,2,2,2,3]     == [1,2,3]
+sortUnique [2,1,3,1,2,2,3]   == [1,2,3]
+sortUnique [7,2,1,3,1,2,2,3] == [1,2,3,7]
+sortUnique "Mississipi"      == "Mips"
+
+getSocialNetwork "Richard" testDB == ["Kate", "Richard"]
+getSocialNetwork "Charlie" testDB == ["Carol", "Charlie", "David"]
+```
