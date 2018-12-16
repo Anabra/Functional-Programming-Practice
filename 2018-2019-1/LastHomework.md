@@ -141,7 +141,7 @@ Adjuk meg azt a függvényt, amely a következőképpen működik. Kap egy törl
 updateEntry :: Username -> (Username, Entry) -> Maybe (Username, Entry)
 ```
 
-Adjuk meg azt a függvényt, amely töröl egy felhasználót az adatbázisból! A törlést csak akkor végezzük el, ha az azt kérő felhasználó (akinek az adatai a kapott cookie-ban vannak) `Admin` jogosultsággal rendelkezik. __Segítség__: Használjuk az előző az `updateEntry` és `mapMaybe` függvényeket!
+Adjuk meg azt a függvényt, amely töröl egy felhasználót az adatbázisból! A törlést csak akkor végezzük el, ha az azt kérő felhasználó (akinek az adatai a kapott cookie-ban vannak) `Admin` jogosultsággal rendelkezik. __Segítség__: Használjuk az `updateEntry` és `mapMaybe` függvényeket!
 
 ```haskell
 deleteUser :: Cookie -> Username -> Database -> Database
