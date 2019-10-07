@@ -1,4 +1,4 @@
-module Practice05 where 
+module Practice5 where 
 
 fst' :: (a,b) -> a
 fst' (x,_) = x
@@ -24,24 +24,32 @@ tail' [] = error "tail': empty list"
 
 
 headTail :: [a] -> (a,[a])
-headTail = undefined
+headTail (x:xs) = (x,xs)
+headTail [] = error "headTail: empty list"
 
 threeTupleToList :: (a,a,a) -> [a]
-threeTupleToList = undefined
+threeTupleToList (x,y,z) = [x,y,z]
 
 isEmpty :: [a] -> Bool
-isEmpty = undefined
+isEmpty [] = True 
+isEmpty _  = False
 
 isSingleton :: [a] -> Bool 
-isSingleton = undefined
+isSingleton [_] = True 
+isSingleton _   = False
 
-atLeastThree :: [a] -> Bool 
-atLeastThree = undefined 
+atLeastThree :: [a] -> Bool
+-- this list has at least element: x,y,z, and zs may be an other list (either cosntructed by [] or by (:), it doesn't matter) 
+atLeastThree (x:y:z:zs) = True 
+atLeastThree _         = False 
+-- atLeastThree [1..] == True
 
 -- extra
 
 sum' :: [Int] -> Int 
-sum' = undefined
+sum' (x:xs) = x + sum' xs
 
 length' :: [a] -> Int
-length' = undefined
+-- Note that the elemnts of the list doesn't matter. 
+-- Time for some compiler optimizations!
+length' (_:xs) = 1 + length xs
