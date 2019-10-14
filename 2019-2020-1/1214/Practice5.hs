@@ -54,9 +54,34 @@ atLeastThree _         = False
 -- extra
 
 sum' :: [Int] -> Int 
+sum' []     = 0   
 sum' (x:xs) = x + sum' xs
+
+{- What if we added more patterns?
+sum' []     = 0
+sum' [x]    = x    
+sum' [x,y]  = x + y    
+sum' (x:xs) = x + sum' xs
+
+sum' [x,y] = sum' (x:(y:[]))
+           = x + sum' (y:[])
+           = x + y + sum' []
+           = x + y
+-}
+
+{-
+sum(list<int> xs)
+{
+    int n = 0;
+    for (i = 0; i < length xs; i++)
+    {
+        n = n + xs[i];
+    }
+}
+-}
 
 length' :: [a] -> Int
 -- Note that the elemnts of the list doesn't matter. 
 -- Time for some compiler optimizations!
+length' []     = 0
 length' (_:xs) = 1 + length xs
