@@ -70,6 +70,8 @@ sum' [x,y] = sum' (x:(y:[]))
 -}
 
 {-
+invariant in the ith iteration (i = ...)
+  n = sum(xs[0..i])
 sum(list<int> xs)
 {
     int n = 0;

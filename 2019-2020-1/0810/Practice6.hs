@@ -29,7 +29,7 @@ bar = undefined
 
 F is recursive if F calls itself
 
-Things to pay attention:
+Things to pay attention to:
   - recursive case (what if somebody already completed a subtask?)
   - base case (where does the function terminate?)
 
