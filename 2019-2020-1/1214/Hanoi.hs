@@ -1,5 +1,7 @@
 module Hanoi where
 
+--  https://www.youtube.com/watch?v=8lhxIOAfDss
+
 -- (n,m) ~ move 1 ring from the nth rod to the mth rod
 type Move = (Int, Int)
 -- ([2,3],[],[1]) ~ Hanoi problem with 3 rods.
