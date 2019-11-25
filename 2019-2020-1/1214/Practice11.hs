@@ -58,3 +58,18 @@ map' f = foldr (\x ys -> f x : ys) []
 
 filter' :: (a -> Bool) -> [a] -> [a]
 filter' p = foldr (\x ys -> if p x then x : ys else ys) []
+
+
+pipeline :: [a -> a] -> (a -> a) 
+pipeline = undefined 
+{-
+pipeline [] 5 == 5
+pipeline [] True == True 
+pipeline [(*2)] 4 == 8
+pipeline [(+1)] 4 == 5
+pipeline [(+1),(*2)] 4 == 9
+pipeline [(*2),(+1)] 4 == 10
+pipeline [(*2),(+1),(*3)] 4 == 26
+pipeline [reverse, map (*2), take 4] [1..] == [8,6,4,2]
+pipeline [reverse, map (*2), take 4] [1..] == reverse . map (*2) . take 4 $ [1..]
+-}
