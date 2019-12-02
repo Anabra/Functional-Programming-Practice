@@ -29,3 +29,32 @@ foldl_ f acc (x:xs) = foldl_ f (f acc x) xs
 
 -- isort [3,2,7] == insert 3 (insert 2 (insert 7 []))
 -- isort [3,2,7] == insert 3 $ insert 2 $ insert 7 $ [] 
+
+concat' :: [[a]] -> [a]
+concat' = foldr (++) []
+
+maximum' :: Ord a => [a] -> a
+maximum' = foldl1 max
+maximum' (x:xs) = foldl max x xs
+
+length' :: [a] -> Int
+length' = foldl (\acc _ -> acc + 1) 0
+
+isort :: Ord a => [a] -> [a] 
+isort = foldr insert []
+
+-- (++)
+(+++) :: [a] -> [a] -> [a]
+(+++) xs ys = foldr (:) ys xs
+-- (+++) xs ys = foldr (\cur acc -> cur:acc) ys xs
+
+reverse' :: [a] -> [a]
+reverse' xs = rev [] xs where 
+  rev :: [a] -> [a] -> [a]
+  rev alreadyRevved [] = alreadyRevved 
+  rev alreadyRevved (x:xs) = rev (x:alreadyRevved) xs  
+
+-- using the definition of rev
+reverseWithFoldl :: [a] -> [a]
+reverseWithFoldl = foldl (\acc cur -> cur:acc) []
+-- reverseWithFoldl = foldl (flip (:)) []
